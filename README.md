@@ -16,3 +16,12 @@ You are ready to capture computer info
 1. Plug the computer into the network if you want the MAC
 2. Boot from the USB key
 3. Info is captured to maclist.csv on the root of the USB key.  Red text generally means that the MAC did not get captured for some reason (usually network not plugged in, or driver not loaded on the boot key)
+
+
+
+Look out for the message: `The specified package is not applicable to this image.`
+You likely have the wrong version of the Windows ADK with PE addon installed.  Older versions of the ADK are further down the MS downloads page.
+
+You can get the version of Windows on your boot key with the command
+`dism /get-wiminfo /wimfile:p:\sources\boot.wim /index:1`
+(where p: is the drive letter of your SCCM USB key)
